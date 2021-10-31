@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="https://www.favicon.cc/logo3d/121615.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drump Kit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="All_keys">
+        <div class="key" data-key="65">
+            <kbd class="Alpha">A</kbd>
+            <div class="SoundName">CLAP</div>
+        </div>
+        <div class="key" data-key="83">
+            <kbd class="Alpha">S</kbd>
+            <div class="SoundName">HIHAT</div>
+        </div>
+        <div class="key" data-key="68">
+            <kbd class="Alpha">D</kbd>
+            <div class="SoundName">KICK</div>
+        </div>
+        <div class="key" data-key="70">
+            <kbd class="Alpha">F</kbd>
+            <div class="SoundName">OPENHAT</div>
+        </div>
+        <div class="key" data-key="71">
+            <kbd class="Alpha">G</kbd>
+            <div class="SoundName">BOOM</div>
+        </div>
+        <div class="key" data-key="72">
+            <kbd class="Alpha">H</kbd>
+            <div class="SoundName">RIDE</div>
+        </div>
+        <div class="key" data-key="74">
+            <kbd class="Alpha">J</kbd>
+            <div class="SoundName">SNARE</div>
+        </div>
+        <div class="key" data-key="75">
+            <kbd class="Alpha">K</kbd>
+            <div class="SoundName">TOM</div>
+        </div>
+        <div class="key" data-key="76">
+            <kbd class="Alpha">L</kbd>
+            <div class="SoundName">TINK</div>
+        </div>
+    </div>
+
+    <audio data-key="65" src="sounds/clap.wav"></audio>
+    <audio data-key="83" src="sounds/hihat.wav"></audio>
+    <audio data-key="68" src="sounds/kick.wav"></audio>
+    <audio data-key="70" src="sounds/openhat.wav"></audio>
+    <audio data-key="71" src="sounds/boom.wav"></audio>
+    <audio data-key="72" src="sounds/ride.wav"></audio>
+    <audio data-key="74" src="sounds/snare.wav"></audio>
+    <audio data-key="75" src="sounds/tom.wav"></audio>
+    <audio data-key="76" src="sounds/tink.wav"></audio>
+
+    <script>
+         
+        function playsound(e){
+            let audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+            let key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+            if(document.querySelector(`.key[data-key="${e.keyCode}"]`).classList.contains('playing')){
+                setTimeout(() => {
+                    document.querySelector(`.key[data-key="${e.keyCode}"]`).classList.remove('playing');
+                   
+                }, 200);
+            }
+          
+            if(!key) return;
+            key.classList.add('playing');
+            // console.log(audio);
+            audio.currentTime =0;
+            audio.play();
+        }
+        function removeSound(e){
+            if(e.propertyName !== "transform") return;
+            // console.log(e)
+            this.classList.remove('playing');
+            // if(document.querySelector(`key[data-key="72"]`).classList.contains('playing')){
+            //     setTimeout(() => {
+            //         document.querySelector(`key[data-key="72"]`).classList.remove('playing');
+            //     }, 200);
+            // }
+
+        }
+
+        window.addEventListener('keydown',playsound);
+        let keys = document.querySelectorAll(".key");
+        keys.forEach((e)=>{
+            e.addEventListener('transitionend',removeSound);
+        })
+    </script>
+
+
+</body>
+
+</html>

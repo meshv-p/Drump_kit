@@ -1,0 +1,46 @@
+body{
+    background-image: url("https://raw.githubusercontent.com/wesbos/JavaScript30/master/01%20-%20JavaScript%20Drum%20Kit/background.jpg");
+    background-size: cover;
+    font-family: san-serif;
+    font-size: 10px;
+}
+
+.All_keys{
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 20% 0;
+}
+
+.playing{
+    border: 1px solid #ffc660;
+    box-shadow: brown 1px 1px 11px 1px;
+    transform: scale(1.5);
+}
+
+.key{
+    display: flex;
+    background-color: #000000db;
+    border: 1px solid green;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    padding: 30px;
+    transition: all .2s;
+}
+.Alpha{
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.SoundName{
+    color: orange;
+    font-weight: bolder;
+    padding: 10px;
+    letter-spacing: 1px;
+    align-items: center;
+}
