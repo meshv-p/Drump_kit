@@ -3,6 +3,7 @@ body{
     background-size: cover;
     font-family: san-serif;
     font-size: 10px;
+    background-repeat: no-repeat;
 }
 
 .All_keys{
@@ -10,7 +11,9 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    margin: 20% 0;
+    /* margin: 20% 0; */
+    height: 100vh;
+    flex-wrap: wrap;
 }
 
 .playing{
